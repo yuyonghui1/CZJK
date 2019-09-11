@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.MenuDao">
+
+    <select id="findAllAndSon" parameterType="int" resultType="menu">
+        select * from t_menu where parentMenuId=#{paraentMenuId}
+    </select>
+
+    <select id="findRoleId" parameterType="string" resultType="int">
+        select r.id from t_user u,t_user_role ur,t_role r where username=#{username} AND
+            u.id=ur.user_id and ur.role_id=r.id
+    </select>
+
+    <select id="findFatherById" resultType="menu" parameterType="int">
+        select m.* from t_role r,t_role_menu rm,t_menu m where r.id=#{id} and
+            rm.role_id=r.id and rm.menu_id=m.id and m.`level`=1
+    </select>
+</mapper>
