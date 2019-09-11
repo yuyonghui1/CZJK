@@ -66,4 +66,22 @@ public class MessageConst {
     public static final String GET_BUSINESS_REPORT_FAIL = "获取运营统计数据失败";
     public static final String GET_SETMEAL_LIST_SUCCESS = "查询套餐列表数据成功";
     public static final String GET_SETMEAL_LIST_FAIL = "查询套餐列表数据失败";
+    public static final String ADD_Permission_SUCCESS = "新增权限数据成功";
+    public static final String ADD_Permission_FAIL= "新增权限数据失败";
+    public static final String QUERY_Role_SUCCESS = "查询角色列表成功";
+    public static final String QUERY_Role_FALL = "查询角色列表失败";
+    public static final String QUERY_Permission_SUCCESS = "查询权限数据成功";
+    public static final String QUERY_Permission_FAIL= "查询权限数据失败";
+    public static final String DELETE_Permission_SUCCESS = "删除权限数据成功";
+    public static final String DELETE_Permission_FAIL= "删除权限数据失败";
+    public static final String EDIT_Permission_SUCCESS = "编辑权限数据成功";
+    public static final String EDIT_Permission_FAIL= "编辑权限数据失败";
+    public static final String ADD_Menu_SUCCESS = "新增菜单数据成功";
+    public static final String ADD_Menu_FALL= "新增菜单数据失败";
+    public static final String QUERY_Menu_SUCCESS = "查询菜单数据成功";
+    public static final String QUERY_Menu_FALL= "查询菜单数据失败";
+    public static final String EDIT_Menu_SUCCESS = "编辑菜单数据成功";
+    public static final String EDIT_Menu_FALL= "编辑菜单数据失败";
+    public static final String DELETE_Menu_SUCCESS = "删除菜单数据成功";
+    public static final String DELETE_Menu_FALL= "删除菜单数据失败";
 }

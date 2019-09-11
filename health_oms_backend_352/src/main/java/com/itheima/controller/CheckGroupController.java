@@ -63,9 +63,7 @@ public class CheckGroupController {
             return new Result(true,MessageConst.QUERY_CHECKGROUP_SUCCESS, checkGroup);
         } catch (Exception e) {
             e.printStackTrace();
-            return new Result(false,MessageConst.QUERY_CHECKGROUP_FAIL);
-
-        }
+            return new Result(false,MessageConst.QUERY_CHECKGROUP_FAIL); }
     }
 
     @RequestMapping("/findCheckItemIdsById")
@@ -93,7 +91,6 @@ public class CheckGroupController {
     @RequestMapping("/delById")
     public Result delById(Integer id){
         try {
-
             checkGroupService.delById(id);
             return new Result(true,MessageConst.DELETE_CHECKGROUP_SUCCESS);
         }catch (RuntimeException e) {

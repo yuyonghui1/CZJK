@@ -3,8 +3,6 @@ package com.itheima.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.itheima.constant.MessageConst;
 import com.itheima.entity.Result;
-import com.itheima.pojo.Member;
-import com.itheima.pojo.MemberAge;
 import com.itheima.service.MemberService;
 import com.itheima.service.ReportService;
 import com.itheima.service.SetmealService;
@@ -18,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author 黑马程序员
@@ -37,9 +38,6 @@ public class ReportController {
 
     @Reference
     ReportService reportService;
-
-
-
 
     @RequestMapping("/getAge")
     public Result getAge(){

@@ -69,4 +69,9 @@ public class OrderSettingServiceImpl implements OrderSettingService {
 
         return orderSettingList;
     }
+
+    @Override
+    public void del(String delDate) {
+
+    }
 }

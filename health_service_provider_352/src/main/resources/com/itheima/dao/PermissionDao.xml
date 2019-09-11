@@ -6,4 +6,59 @@
     <select id="findPermissionsByRoleId" resultType="permission" parameterType="int">
         select p.* from t_role_permission rp, t_permission p where rp.role_id = #{role_id} and rp.permission_id = p.id
     </select>
+
+    <insert id="add" parameterType="permission">
+        <selectKey resultType="int" order="AFTER" keyColumn="id" keyProperty="id">
+            select last_insert_id()
+        </selectKey>
+        INSERT INTO `t_permission`
+        (`name`, `keyword`, `description`)
+        VALUES
+        (#{name}, #{keyword}, #{description});
+    </insert>
+
+    <insert id="set">
+        INSERT INTO `t_role_permission`
+        (`role_id`, `permission_id`)
+        VALUES (#{roleId},#{permissionId});
+    </insert>
+
+    <select id="findByCondition" parameterType="string" resultType="Permission">
+        select * from t_permission
+        <where>
+            <if test="value != null and value.length > 0">
+               name like "%"#{value}"%" or keyword like "%"#{value}"%"
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="int" resultType="permission">
+        select * from t_permission where id = #{id}
+    </select>
+
+    <select id="findRoleIdsById" parameterType="int" resultType="int">
+        select role_id from t_role_permission where permission_id = #{id}
+    </select>
+
+    <select id="findCountById" parameterType="int" resultType="long">
+        select count(0) from t_role_permission where permission_id = #{id}
+    </select>
+
+    <delete id="delById" parameterType="int">
+        delete from t_permission where id = #{id}
+    </delete>
+
+    <delete id="delAssociation" parameterType="int">
+        delete from t_role_permission where permission_id = #{id}
+    </delete>
+
+    <update id="edit" parameterType="permission">
+        UPDATE `t_permission`
+        SET
+        `name`=#{name},
+        `keyword`=#{keyword},
+        `description`=#{description}
+        WHERE (`id`=#{id})
+    </update>
+
 </mapper>

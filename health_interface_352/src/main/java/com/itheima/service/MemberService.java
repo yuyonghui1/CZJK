@@ -23,10 +23,4 @@ public interface MemberService {
 
     Map<String,Object> getAge();
 
-
-
-    //查询会员性别
-
-
-
 }

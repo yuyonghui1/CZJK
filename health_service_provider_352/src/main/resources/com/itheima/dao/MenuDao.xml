@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.dao.MenuDao">
+    <insert id="add" parameterType="menu">
+        <selectKey resultType="int" order="AFTER" keyColumn="id" keyProperty="id">
+        select last_insert_id()
+        </selectKey>
+        INSERT INTO `t_menu`
+        (`name`, `linkUrl`, `path`, `priority`, `icon`, `description`)
+        VALUES
+        (#{name},#{linkUrl},#{linkUrl},#{priority},#{icon},#{description})
+    </insert>
+
+    <insert id="set">
+        INSERT INTO `t_role_menu`
+        (`role_id`, `menu_id`)
+        VALUES (#{roleId},#{menuId});
+    </insert>
+
+    <select id="findByCondition" parameterType="string" resultType="menu">
+        select * from t_menu
+        <where>
+            <if test="value != null and value.length > 0">
+                name like "%"#{value}"%"
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="int" resultType="menu">
+        select * from t_menu where id = #{id}
+    </select>
+
+    <select id="findRoleIdsById" parameterType="int" resultType="int">
+        select role_id from t_role_menu where menu_id = #{id}
+    </select>
+
+    <select id="findCountById" parameterType="int" resultType="long">
+        select count(0) from t_role_menu where menu_id = #{id}
+    </select>
+
+    <delete id="delById" parameterType="int">
+        delete from t_menu where id = #{id}
+    </delete>
+
+    <delete id="delAssociation" parameterType="int">
+        delete from t_role_menu where menu_id = #{id}
+    </delete>
+
+    <update id="edit" parameterType="menu">
+        UPDATE `t_menu` SET
+       `name`=#{name},
+        `linkUrl`=#{linkUrl},
+        `path`=#{path},
+        `priority`=#{priority},
+        `icon`=#{icon},
+        `description`=#{description}
+
+        WHERE (`id`=#{id})
+    </update>
+    <!--`parentMenuId`=#{parentMenuId},-->
+    <!--`level`=#{level}-->
+</mapper>

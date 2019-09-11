@@ -72,8 +72,6 @@ public class LoginController {
         response.addCookie(cookie);
 
         return new Result(true,MessageConst.LOGIN_SUCCESS);
-
     }
 
-
-}
+    }

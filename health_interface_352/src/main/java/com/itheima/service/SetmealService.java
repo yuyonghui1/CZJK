@@ -25,8 +25,4 @@ public interface SetmealService {
     Setmeal findById(Integer id);
 
     List<Map<String,Object>> getSetemalReport();
-
-
-
-
 }

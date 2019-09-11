@@ -1,6 +1,10 @@
 package com.itheima.dao;
 
+
 import com.itheima.pojo.Permission;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Param;
+
 
 import java.util.Set;
 
@@ -11,4 +15,23 @@ import java.util.Set;
  */
 public interface PermissionDao {
     Set<Permission> findPermissionsByRoleId(Integer id);
+
+    void add(Permission permission);
+
+    void set( @Param("roleId") Integer roleId,@Param("permissionId")Integer id);
+
+    Page<Permission> findByCondition(String queryString);
+
+    Permission findById(Integer id);
+
+    Integer[] findRoleIdsById(Integer id);
+
+    long findCountById(Integer id);
+
+    void delById(Integer id);
+
+    void edit(Permission permission);
+
+    void delAssociation(Integer id);
+
 }

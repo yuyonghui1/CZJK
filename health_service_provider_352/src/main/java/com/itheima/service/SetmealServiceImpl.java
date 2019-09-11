@@ -97,15 +97,4 @@ public class SetmealServiceImpl implements SetmealService {
         return setmealDao.findSetmealReport();
     }
 
-
-
-
-    /**
-     * setmealCount:[
-     *                      {value :100, name: '直接访问'},
-     *                      {value :100, name:'邮件营销'}
-     *              ]
-     * @return
-     */
-
 }

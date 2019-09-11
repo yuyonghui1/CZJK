@@ -51,11 +51,10 @@ public class CheckItemServiceImpl implements CheckItemService {
         long count = checkItemDao.findCountById(id);
         if(count > 0) {
             //说明被关联
-            throw new RuntimeException("该检查项被检查组关联，不能删除！！");
+            throw new RuntimeException("该权限项被角色或检查组关联，不能删除！！");
         }else {
             checkItemDao.delById(id);
         }
-
     }
 
     @Override
@@ -72,4 +71,5 @@ public class CheckItemServiceImpl implements CheckItemService {
     public List<CheckItem> findAll() {
         return checkItemDao.findAll();
     }
+
 }

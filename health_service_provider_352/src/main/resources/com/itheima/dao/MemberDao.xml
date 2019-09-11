@@ -21,7 +21,6 @@
         select count(0) from t_member where regTime &lt;= #{date}
     </select>
 
-
     <select id="findTodayNewMember" resultType="long" parameterType="string">
         select count(0) from t_member where regTime = #{todayDate}
     </select>

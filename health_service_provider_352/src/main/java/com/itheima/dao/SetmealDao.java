@@ -32,6 +32,4 @@ public interface SetmealDao {
      */
     List<Map<String,Object>> getHotSetmeal();
 
-
-
 }

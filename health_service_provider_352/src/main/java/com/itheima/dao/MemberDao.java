@@ -24,12 +24,9 @@ public interface MemberDao {
 
     long findNewMemberByAfterDate(String date);
 
-
-
     List<Map<String,Object>> getSex();
 
     List<Map<String,Object>> getSex2();
-
 
     List<Date> getAge();
 
